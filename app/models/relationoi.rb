@@ -1,4 +1,4 @@
-class RelationOi < ApplicationRecord
+class Relationoi < ApplicationRecord
   belongs_to :order
   belongs_to :item
 end

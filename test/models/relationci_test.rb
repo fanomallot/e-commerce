@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RelationOiTest < ActiveSupport::TestCase
+class RelationciTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
