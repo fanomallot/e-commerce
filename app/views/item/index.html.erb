@@ -1,5 +1,5 @@
-<%=link_to "prendre un panier",cart_index_path,method: "post" %>
-<%=link_to "voir profil" %>
+<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
+<%=link_to "voir profil", user_path(current_user.id) %>
 <h1>Liste des produits disponibles :</h1>
 <p>
 	<% @item.each do |item| %>
