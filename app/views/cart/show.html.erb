@@ -12,4 +12,6 @@
    <%end%>
 <h4>total price: <%=@price%></h4>
 
- <%= form_tag "#" do%> <%= submit_tag "Passer commande"%> <% end %>
+ <%= form_tag '/orders', method:'post' do%> <%= submit_tag "Passer commande"%> 
+ <%= hidden_field_tag :cart_id, @cart.id %>
+ <% end %>
