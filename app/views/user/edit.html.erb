@@ -1,0 +1,7 @@
+<h1>Users  edit</h1>
+<%= form_tag url_for(action: 'update'), method: "put" do%>
+<input type="text" name="first_name"><br>
+<input type="text" name="last_name"><br>
+<input type="text" name="description"><br><br>
+<%= submit_tag "Edite" %><br>
+<%end%>
