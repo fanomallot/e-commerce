@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'avatars/create'
   devise_for :users
   root to: "item#index"
-  resources :item
+  resources :item do
+  	resources :avatars, only: [:create]
+  end
   resources :cart
   resources :user do
     resources :profil, only: [:create]
