@@ -27,15 +27,40 @@
   <div class="row">
   	<% @item.each do |item| %>
         <div class="column">
-  		<strong> Titre : </strong> <%= item.title %><br>
-         	<%if item.avatar.attached?%>
-	  			<%= image_tag item.avatar, alt: 'avatar',style:"width: 450px;height:300px"  %><br>
-			<%else%>
-	  			<div class="boxvide"> </div>
-	  		<%end%>
-			<i> <%= link_to "See more", item_path(item.id) %><br/> </i>
+        	<div class="flip">
+				<div class="flip-card">
+					<div class="flip-card-inner">
+						<div class="flip-card-front">
+			         		<%if item.avatar.attached?%>
+	  							<%= image_tag item.avatar, alt: 'avatar',style:"width: 300px;height:300px"  %><br>
+							<%else%>
+					  			<div class="boxvide"> </div>
+					  		<%end%>
+					  	</div>
+					  	<div class="flip-card-back">
+  							<strong> Titre : </strong><br> 
+  							<%= item.title %><br>
+							<i> <%= link_to "See more", item_path(item.id) %><br/> </i>
+						</div>
+					</div>
+				</div>
+			</div>
         </div>
 	<% end %>
   </div> 
 </div>
+</div>
+<div class="flip">
+	<div class="flip-card">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+				<img src="i4.jpg" alt="Avatar" style="width:400px;height:400px;">
+			</div>
+			<div class="flip-card-back">
+				<h1>John Doe</h1>
+				<p>Architect & Engineer</p>
+				<p>The best cook in the world</p>
+			</div>
+		</div>
+	</div>
 </div>
