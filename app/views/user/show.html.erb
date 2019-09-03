@@ -1,0 +1,7 @@
+<h1>Profil</h1>
+<%=@user.first_name%><br>
+<%=@user.last_name%><br>
+<%=@user.description%><br>
+
+<%=@user.email%><br>
+<%=link_to 'edit profil',edit_user_path(@user.id)%>
