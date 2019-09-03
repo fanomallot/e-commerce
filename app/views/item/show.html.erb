@@ -20,8 +20,6 @@
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
 
-<% if user_signed_in? %>
-	
-<%end%>
+<h2><i><%= link_to "Edit", edit_item_path %></i></h2>
 
 <h4><em><%= link_to "Back", :back %></em></h4>
