@@ -1,7 +1,7 @@
 <h1>Liste des produits disponibles :</h1>
 <p>
 	<% @item.each do |item| %>
-		<strong> Titre : </strong> <%= item.title %><br/>
+		<strong> Titre : </strong> <%= item.title %>
 		<i> <%= link_to "See more", item_path(item.id) %><br/> </i>
 	<% end %>
 </p>
