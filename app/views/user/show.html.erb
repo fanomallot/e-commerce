@@ -18,5 +18,7 @@
 <%=link_to 'edit profil',edit_user_path(@user.id)%><br>
 <%if @user.cart != nil %>
 	<%=link_to 'voir le panier',cart_path(@user.cart.id) %>
+<%else%>
+	<p>vous n'avez pas de panier pour le moment</p>
+	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
 <%end%>
-
