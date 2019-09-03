@@ -1,4 +1,5 @@
 class ItemController < ApplicationController
+	before_action :authenticate_user!, only: [:show, :create]
 
 	def index
 		@item = Item.all
@@ -9,11 +10,11 @@ class ItemController < ApplicationController
 	end
 
 	def new
-		
+		# @item = Item.new
 	end
 
 	def create
-		
+		# @item = Item.new(title: params[:title], image_url: params[:image_url], price: params[:price], description: params[:description])
 	end
 
 	def edit
