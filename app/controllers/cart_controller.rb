@@ -1,14 +1,23 @@
 class CartController < ApplicationController
-	def show
-		#calcul price
-		@cart = Cart.find(2)  #current_user.cart
-		@price = 0
-		@cart.items.each do |i|
-			@price = @price + i.price
-		end
+before_action :authenticate_user!
+def create
+	@cart = Cart.new(user: current_user)
+	if @cart.save
+		redirect_to "/"
+	else
+		redirect_to "/"
 	end
+end
+def show
+	#calcul price
+	@cart = current_user.cart #Card.find(1)
+	@price = 0
+	@cart.items.each do |i|
+		@price = @price + i.price
+	end
+end
 
-	def destroy
+def destroy
 		#delete
 		@cart = Cart.find(params[:id])
 		a = @cart.items

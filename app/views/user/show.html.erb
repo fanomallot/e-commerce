@@ -1,0 +1,19 @@
+<h1>Profil</h1>
+<%if @user.profil.attached?%>
+  <%= image_tag @user.profil, alt: 'profil' ,style:"width: 250px;height:100px" %>
+  <br>
+<%else%>
+  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+<%end%>
+  <p>Ajouté un photo de profil</p>
+	<%= form_tag user_profil_index_path(@user), multipart: true do %>
+	  <%= file_field_tag :profil %>
+	  <%= submit_tag "uploader profil" %>
+	<% end %>
+<%=@user.first_name%><br>
+<%=@user.last_name%><br>
+<%=@user.description%><br>
+
+<%=@user.email%><br>
+<%=link_to 'edit profil',edit_user_path(@user.id)%><br>
+<%=link_to 'voir le panier',cart_path(@user.cart.id) %>
