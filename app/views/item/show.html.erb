@@ -4,7 +4,7 @@
 	<%if @item.avatar.attached?%>
 	  <%= image_tag @item.avatar, alt: 'avatar' %>
 	<%else%>
-	  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+	  <p>=== This item has no photo yet ===</p>
 	  <h3>Upload new photo ?</h3>
 		<%= form_tag item_avatars_path(@item), multipart: true do %>
 		  <%= file_field_tag :avatar %>
@@ -19,3 +19,9 @@
 	<strong> Prix : </strong> <%= @item.price %><br/>
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
+
+<% if user_signed_in? %>
+	
+<%end%>
+
+<h4><em><%= link_to "Back", :back %></em></h4>
