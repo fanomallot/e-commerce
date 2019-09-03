@@ -3,7 +3,7 @@ before_action :authenticate_user!
 def create
 	@cart = Cart.new(user: current_user)
 	if @cart.save
-		redirect_to "/"
+		redirect_back fallback_location: '/' ,allow_other_host: false
 	else
 		redirect_to "/"
 	end

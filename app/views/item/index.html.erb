@@ -1,4 +1,18 @@
-<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
+<%if user_signed_in?%>
+	<%if current_user.cart != nil %>
+	<%=link_to 'voir le panier',cart_path(current_user.cart.id) %>
+	<%else%>
+	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
+	<%end%>
+	<br/>
+	<%=link_to "voir profil", user_path(current_user.id) %>
+	<br/>
+	<%=link_to 'sign out',destroy_user_session_path,method: 'delete' %>
+<%else%>
+	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
+	<%=link_to 'sign in',new_user_session_path %>
+<%end%>
+<br/>
 <%= link_to "Create en item", new_item_path %><br/>
 <h1>Liste des produits disponibles :</h1>
 <p>
