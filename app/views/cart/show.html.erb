@@ -1,0 +1,15 @@
+<%@cart.items.each do |i|%>
+<div id <%=i.id%> >
+	<h4> <%=i.title %> <%= i.price%> </h4> 
+	<%item_id = i.id%>
+    <h5 name:<%=i.id%>>	<%= form_tag  cart_path(@cart.id) , method: :delete do%> <%= submit_tag "Supprimer mail"%>
+    	<%= hidden_field_tag :item_id, i.id %>
+    </h5>
+    <% end %> 
+	</br>	
+</div>
+  
+   <%end%>
+<h4>total price: <%=@price%></h4>
+
+ <%= form_tag "#" do%> <%= submit_tag "Passer commande"%> <% end %>

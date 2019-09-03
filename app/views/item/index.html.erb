@@ -2,6 +2,8 @@
 <%if user_signed_in?%>
 <%=link_to "voir profil", user_path(current_user.id) %>
 <%end%>
+<br/>
+<%= link_to "Create en item", new_item_path %><br/>
 <h1>Liste des produits disponibles :</h1>
 <p>
 	<% @item.each do |item| %>

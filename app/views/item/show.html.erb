@@ -1,8 +1,25 @@
 <h1>Tadaaammmm...</h1>
 <h3>Voici le detail de ce produit :</h3>
 <p>
+	<%if @item.avatar.attached?%>
+	  <%= image_tag @item.avatar, alt: 'avatar' %>
+	<%else%>
+	  <p>=== This item has no photo yet ===</p>
+	  <h3>Upload new photo ?</h3>
+		<%= form_tag item_avatars_path(@item), multipart: true do %>
+		  <%= file_field_tag :avatar %>
+		  <%= submit_tag "mettre à jour" %>
+		<% end %>
+	<%end%>
+</p>
+
+<p>
 	<strong> Titre : </strong> <%= @item.title %><br/>
 	<strong> L'URL de l'image : </strong> <%= @item.image_url %><br/>
 	<strong> Prix : </strong> <%= @item.price %><br/>
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
+
+<h2><i><%= link_to "Edit", edit_item_path %></i></h2>
+
+<h4><em><%= link_to "Back", :back %></em></h4>
