@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+
 20.times do 
 	Item.create(title: Faker::Book.title,
 description: Faker::Quote.matz,price: Faker::Commerce.price  ,image_url: "link#{rand(50)}")
