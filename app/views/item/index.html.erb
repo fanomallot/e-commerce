@@ -1,5 +1,7 @@
 <%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
+<%if user_signed_in?%>
 <%=link_to "voir profil", user_path(current_user.id) %>
+<%end%>
 <h1>Liste des produits disponibles :</h1>
 <p>
 	<% @item.each do |item| %>

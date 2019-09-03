@@ -16,4 +16,7 @@
 
 <%=@user.email%><br>
 <%=link_to 'edit profil',edit_user_path(@user.id)%><br>
-<%=link_to 'voir le panier',cart_path(@user.cart.id) %>
+<%if @user.cart != nil %>
+	<%=link_to 'voir le panier',cart_path(@user.cart.id) %>
+<%end%>
+
