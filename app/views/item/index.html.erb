@@ -1,18 +1,55 @@
 <%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
-<%if user_signed_in?%>
-<br/>
-<%=link_to "voir profil", user_path(current_user.id) %>
-<br/>
-<%=link_to 'sign out',destroy_user_session_path,method: 'delete' %>
-<%else%>
-<%=link_to 'sign in',new_user_session_path %>
-<%end%>
-<br/>
 <%= link_to "Create en item", new_item_path %><br/>
 <h1>Liste des produits disponibles :</h1>
 <p>
 	<% @item.each do |item| %>
-		<strong> Titre : </strong> <%= item.title %>
+
+		<strong> Titre : </strong> <%= item.title %><br>
+		<%if item.avatar.attached?%>
+	  		<%= image_tag item.avatar, alt: 'avatar',style:"width: 450px;height:300px"  %><br>
+		<%else%>
+	  		<div class="boxvide"> </div>
+	  	<%end%>
 		<i> <%= link_to "See more", item_path(item.id) %><br/> </i>
 	<% end %>
 </p>
+
+  <div class="wrapper">
+    <div class="page-header clear-filter" filter-color="orange">
+      <div >
+      </div>
+      <div class="container">
+        <div class="content-center brand">
+          <%= image_tag 'i15.jpg', alt: 'image 15', id:"catfond" %>
+           <div class="centered"><h1 style="opacity: 0.5">Cat</h1></div>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="row">
+        <div class="column">
+          <%= image_tag 'i1.jpg', alt: 'image 1' %>
+          <%= image_tag 'i2.jpg', alt: 'image 2' %>
+          <%= image_tag 'i3.jpg', alt: 'image 3' %>
+          <%= image_tag 'i4.jpg', alt: 'image 4' %>
+          <%= image_tag 'i5.jpg', alt: 'image 5' %>
+        </div>
+        <div class="column">
+          <%= image_tag 'i6.jpg', alt: 'image 6' %>
+          <%= image_tag 'i7.jpg', alt: 'image 7' %>
+          <%= image_tag 'i8.jpg', alt: 'image 8' %>
+          <%= image_tag 'i9.jpg', alt: 'image 9' %>
+          <%= image_tag 'i10.jpg', alt: 'image 10' %>
+        </div>
+        <div class="column">
+          <%= image_tag 'i11.jpg', alt: 'image 11' %>
+          <%= image_tag 'i12.jpg', alt: 'image 12' %>
+        </div>
+        <div class="column">
+          <%= image_tag 'i13.jpg', alt: 'image 13' %>
+          <%= image_tag 'i14.jpg', alt: 'image 14' %>
+          <%= image_tag 'i15.jpg', alt: 'image 15' %>
+        </div>
+      </div> 
+    </div>
+  </div>
