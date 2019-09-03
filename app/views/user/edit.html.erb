@@ -1,0 +1,6 @@
+<h1>Modifié le profil</h1>
+<%=form_tag url_for(action: 'update'),method: 'put' %>
+<input type="text" name="first_name" value="<%=@user.first_name%>"><br>
+<input type="text" name="last_name" value="<%=@user.last_name%>"><br>
+<textarea type="text" name="description"><%=@user.description%></textarea><br>
+<input type="submit" value="update"><br>
