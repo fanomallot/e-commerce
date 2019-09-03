@@ -2,15 +2,15 @@
 <h3>Voici le detail de ce produit :</h3>
 <p>
 	<%if @item.avatar.attached?%>
-	  <%= image_tag @item.avatar, alt: 'avatar' %>
+	  <%= image_tag @item.avatar, alt: 'avatar',style:"width: 350px;height:300px"  %>
 	<%else%>
 	  <p>=== This item has no photo yet ===</p>
+	<%end%>
 	  <h3>Upload new photo ?</h3>
 		<%= form_tag item_avatars_path(@item), multipart: true do %>
 		  <%= file_field_tag :avatar %>
 		  <%= submit_tag "mettre à jour" %>
 		<% end %>
-	<%end%>
 </p>
 
 <p>
