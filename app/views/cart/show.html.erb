@@ -1,0 +1,11 @@
+<%@cart.items.each do |i|%>
+<div id <%=i.id%> >
+	<h4> <%=i.title %> <%= i.price%> </h4> 
+	
+	</br>	
+</div>
+  
+   <%end%>
+<h4>total price: <%=@price%></h4>
+
+ 
