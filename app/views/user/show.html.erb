@@ -1,24 +1,49 @@
-<h1>Profil</h1>
-<%if @user.profil.attached?%>
-  <%= image_tag @user.profil, alt: 'profil' ,style:"width: 250px;height:100px" %>
-  <br>
-<%else%>
-  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-<%end%>
-  <p>Ajouté un photo de profil</p>
-	<%= form_tag user_profil_index_path(@user), multipart: true do %>
-	  <%= file_field_tag :profil %>
-	  <%= submit_tag "uploader profil" %>
-	<% end %>
-<%=@user.first_name%><br>
-<%=@user.last_name%><br>
-<%=@user.description%><br>
-
-<%=@user.email%><br>
-<%=link_to 'edit profil',edit_user_path(@user.id)%><br>
-<%if @user.cart != nil %>
-	<%=link_to 'voir le panier',cart_path(@user.cart.id) %>
-<%else%>
-	<p>vous n'avez pas de panier pour le moment</p>
-	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
-<%end%>
+<body class="index-page sidebar-collapse">
+  <div class="wrapper">
+     <div class="page-header clear-filter" filter-color="orange">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-2">
+            <%if @user.cart != nil %>
+				<%=link_to 'Voir Panier',cart_path(@user.cart.id), class: "btn btn-outline-black btn-primary btn-round" %>
+			<%else%>
+				<p>vous n'avez pas de panier pour le moment</p>
+				<%=link_to "Prendre un panier",cart_index_path,method: "post", class: "btn btn-outline-black btn-primary btn-round" %>
+			<%end%>
+            <%=link_to 'Edit profil',edit_user_path(@user.id), class: "btn btn-outline-black btn-primary btn-round"%>
+          </div>
+          <div class="col-sm-10">
+        <div class="photo-container">
+           <%if @user.profil.attached?%>
+			  <%= image_tag @user.profil, alt: 'profil' ,id:"catprofil" %>
+			  <br>
+			<%else%>
+			  <%= image_tag 'avatar.jpg', alt: 'No Profil', id:"catprofil" %>
+			<%end%><br>
+			<%= form_tag user_profil_index_path(@user), multipart: true do %>
+			  <%= file_field_tag :profil, class: "btn" %>
+			  <%= submit_tag "Uploader profil", class: "btn" %>
+			<% end %>
+        </div>
+        <h3 class="title"><%=@user.first_name%>  
+			<%=@user.last_name%></h3>
+        <p class="category"><%=@user.description%></p>
+        <div class="content">
+          <div class="social-description">
+            <h3>Panier</h3>
+            <% if @user.cart != nil %>
+            <h2><%=@user.cart.items.length%> Items</h2>
+            <%else%>
+            <h2>No Item yet, Go to E-commerce</h2>
+            <%end%>
+          </div>
+          <div class="social-description">
+            <h5>Email</h5>
+            <h6><%=@user.email%></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
