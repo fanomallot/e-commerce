@@ -1,40 +1,43 @@
 
-<div class="wrapper">
-<div class="page-header clear-filter" filter-color="orange">
-  <div >
-  </div>
-  <div class="container">
-    <div class="content-center brand">
-      <%= image_tag 'i15.jpg', alt: 'image 15', id:"catfond" %>
-       <div class="centered"><h1 style="opacity: 0.5">Cat</h1></div>
+<body class="index-page sidebar-collapse">
+  <div class="wrapper">
+    <div class="page-header clear-filter" filter-color="orange">
+      <div >
+      </div>
+      <div class="container">
+        <div class="content-center brand">
+          <%= image_tag 'i15.jpg', alt: 'image 15', id:"catfond" %>
+           <div class="centered"><h1 style="opacity: 0.5">Cat</h1></div>
+            <div class="bottom-left">
+              <h3 style="opacity: 0.5">
+                <%if user_signed_in?%>
+                  <%if current_user.cart != nil %>
+                  <%=link_to 'voir le panier',cart_path(current_user.cart.id) %><br/>
+                  <%else%>
+                  <%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
+                  <%end%>
+                <%else%>
+                  <%=link_to "Prendre un panier",cart_index_path,method: "post" %><br/>
+                <%end%> 
+                <%= link_to "Create en item", new_item_path %>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<%if user_signed_in?%>
-	<%if current_user.cart != nil %>
-	<%=link_to 'voir le panier',cart_path(current_user.cart.id) %>
-	<%else%>
-	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
-	<%end%>
-	<br/>
-<%else%>
-	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
-<%end%>
-<br/>
-<%= link_to "Create en item", new_item_path %><br/>
-<h1>Liste des produits disponibles :</h1>
-<div class="main">
+<div class="main" style="background-color: #a6adad;">
+	<h1 style="text-align: center;">Liste des produits disponibles</h1>
   <div class="row">
   	<% @item.each do |item| %>
-        <div class="column">
         	<div class="flip">
 				<div class="flip-card">
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
 			         		<%if item.avatar.attached?%>
-	  							<%= image_tag item.avatar, alt: 'avatar',style:"width: 300px; height:300px"  %><br>
+	  							<%= image_tag item.avatar, alt: 'avatar',style:"width: 300px; height:300px", id: 'catfond'  %>
 							<%else%>
-					  			<div class="boxvide"> </div>
+					  			<%= image_tag 'defaut.jpg', alt: 'defaut', id: 'catfond' %>
 					  		<%end%>
 					  	</div>
 					  	<div class="flip-card-back">
@@ -45,22 +48,22 @@
 					</div>
 				</div>
 			</div>
-        </div>
 	<% end %>
   </div> 
-</div>
-</div>
 <div class="flip">
 	<div class="flip-card">
 		<div class="flip-card-inner">
 			<div class="flip-card-front">
-				<img src="i4.jpg" alt="Avatar" style="width:400px;height:400px;">
+				<%= image_tag 'funny.jpg', alt: 'funny', id:"catfond",style: "width:400px;height:400px;" %> 
 			</div>
-			<div class="flip-card-back">
-				<h1>John Doe</h1>
-				<p>Architect & Engineer</p>
-				<p>The best cook in the world</p>
+			<div class="flip-card-back" style="color: yellow;">
+				<h1>Haaaaaaaaaa.......</h1>
+				<p>Io de ita kitiana..</p>
+				<p>Vendrana an!....ha3</p>
 			</div>
 		</div>
 	</div>
 </div>
+</div>
+  </div>
+</body>

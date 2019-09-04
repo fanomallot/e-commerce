@@ -1,23 +1,31 @@
-<h1>Create a new item :</h1>
-
-<p>
-	<%= form_tag url_for(action: 'create'), method: "post" do %>
-
-    	<%= label_tag 'Title' %><br/>
-    	<%= text_field_tag 'title', @item.title %><br/> 
-
-    	<%= label_tag "L'URL de l'image" %><br/>
-    	<%= text_area_tag 'image_url', @item.image_url %><br/> 
-
-      <%= label_tag "Prix" %><br/>
-      <%= text_area_tag 'price', @item.price %><br/> 
-
-      <%= label_tag "Description" %><br/>
-      <%= text_area_tag 'description', @item.description %><br/> 
-
-    <%= submit_tag "Create Item" %>
-
-  <% end %>
-  <h4><em><%= link_to "Back", :back %></em></h4>
-  <h4><em><%= link_to "Home", root_path %></em></h4>
-</p>
+<body class="index-page sidebar-collapse">
+  <div class="page-header clear-filter" filter-color="orange">
+    <div class="content">
+        <br><br><br>
+        <div class="col-md-12 ml-auto mr-auto">
+          <div class="card card-login card-plain">
+            <div class="row">
+              <div class="col-sm-5">
+                <%= image_tag 'many.jpg', alt: 'wow', id: 'catfond' %>
+                <%= link_to "Back", :back, class: "btn btn-primary btn-round btn-lg btn-block" %>
+                <%= link_to "Home", root_path, class: "btn btn-primary btn-round btn-lg btn-block" %>
+              </div>
+              <div class="col-sm-6">
+              <div class="container1">
+                <%= form_tag url_for(action: 'create'), method: "post" do %>
+                  <%= label_tag 'Title' %>
+                  <%= text_field_tag 'title', @item.title, placeholder: "Title.." %>  
+                  <%= label_tag "Prix" %>
+                  <%= text_field_tag 'price', @item.price, placeholder: "Price.." %>
+                  <%= label_tag "Description" %><br/>
+                  <%= text_area_tag 'description', @item.description, placeholder: "Description..", style: "height:200px;" %><br/> 
+                  <%= submit_tag "Create Item", class: "btn btn-primary btn-round btn-lg btn-block" %>
+                <% end %>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
