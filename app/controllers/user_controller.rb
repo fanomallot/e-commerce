@@ -1,5 +1,6 @@
 class UserController < ApplicationController
 	before_action :authenticate_user!
+	before_action :is_current_user? ,only: [:show,:edit]
 	def show
 		@user = User.find(params[:id])
 	end
@@ -14,6 +15,15 @@ class UserController < ApplicationController
 			redirect_to user_path(@user.id)
 		else
 			render edit
+		end
+	end
+	private
+	def is_current_user?
+		@user = User.find(params[:id])
+		if current_user == @user
+			return true
+		else
+			redirect_to root_path
 		end
 	end
 end
