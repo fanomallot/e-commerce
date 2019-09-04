@@ -22,11 +22,9 @@
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
 <%if current_user == admins%>
-<%=link_to 'remove' ,item_path(@item.id),method:'delete'%>
-<h2><i><%= link_to "Edit", edit_item_path %></i></h2>
+	<%=link_to 'remove' ,item_path(@item.id),method:'delete'%>
+	<h2><i><%= link_to "Edit", edit_item_path %></i></h2>
 <%end%>
-
 <h4><i> <%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/> </i></h4>
-
 
 <h4><em><%= link_to "Back", :back %></em></h4>

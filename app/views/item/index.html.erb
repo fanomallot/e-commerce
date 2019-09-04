@@ -40,7 +40,9 @@
   							<strong> Titre : </strong><br> 
   							<%= item.title %><br>
 							<i> <%= link_to "See more", item_path(item.id) %><br/></i>
-							<i> <%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/></i>
+							<%if user_signed_in?%>
+								<i> <%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/></i>
+							<%end%>
 						</div>
 					</div>
 				</div>

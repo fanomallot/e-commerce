@@ -1,16 +1,20 @@
 class ItemController < ApplicationController
-
+	before_action :authenticate_user!, except: [:index]
 	def index
 		@item = Item.all
-		if current_user.cart != nil
-			@cart = current_user.cart
+		if user_signed_in?
+			if current_user.cart != nil
+				@cart = current_user.cart
+			end
 		end
 	end
 
 	def show
 		@item = Item.find(params[:id])
-		if current_user.cart != nil
-			@cart = current_user.cart
+		if user_signed_in?
+			if current_user.cart != nil
+				@cart = current_user.cart
+			end
 		end
 	end
 
