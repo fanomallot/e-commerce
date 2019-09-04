@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   root "item#index"
   resources :cart
   resources :user
+  resources :orders
 end
