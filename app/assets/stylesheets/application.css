@@ -111,14 +111,15 @@
   background-color: white;
   border: inset;
   border-color:black;
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
 
 }
 /*==============================================*/
 /************* Ajout de style sur les phot ******/
 /*===============================================*/
 .flip {
+  margin-bottom: 20px ;
 }
 .flip-card {
   margin-right:100px;
@@ -152,15 +153,15 @@
 }
 
 .flip-card-front {
-    
+    margin-bottom: 10px;
   background-color: #bbb;
   color: black;
 }
 
 .flip-card-back {
-
+  margin-top: 10px;
+  position: absolute;
   background-color: #2980b9;
   color: white;
   transform: rotateY(180deg);
 }
-
