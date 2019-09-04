@@ -1,6 +1,6 @@
 class CartController < ApplicationController
 	before_action :authenticate_user!
-
+	before_action :is_cart_user?
 	def new
 		
 	end
@@ -37,5 +37,13 @@ class CartController < ApplicationController
 		a.delete(@cart.items.find(params[:item_id]))		
 		redirect_to cart_path(params[:id])
 	end
-	
+	private
+	def is_cart_user?
+		@cart = Cart.find(params[:id])
+		if current_user == @cart.user || current_user == admins
+			return true
+		else
+			redirect_to root_path
+		end
+	end
 end

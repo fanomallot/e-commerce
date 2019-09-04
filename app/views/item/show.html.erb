@@ -2,19 +2,18 @@
 <h3>Voici le detail de ce produit :</h3>
 <p>
 	<%if @item.avatar.attached?%>
-	  <%= image_tag @item.avatar, alt: 'avatar',style:"width: 350px;height:300px"  %>
+		<%= image_tag @item.avatar, alt: 'avatar',style:"width: 350px;height:300px"  %>
 	<%else%>
-	  <p>=== This item has no photo yet ===</p>
+		<p>=== This item has no photo yet ===</p>
 	<%end%>
 	<%if current_user == admins%>
-	  <h3>Upload new photo ?</h3>
+		<h3>Upload new photo ?</h3>
 		<%= form_tag item_avatars_path(@item), multipart: true do %>
-		  <%= file_field_tag :avatar %>
-		  <%= submit_tag "mettre à jour" %>
+			<%= file_field_tag :avatar %>
+			<%= submit_tag "mettre à jour" %>
 		<% end %>
 	<%end%>
 </p>
-
 <p>
 	<strong> Titre : </strong> <%= @item.title %><br/>
 	<strong> L'URL de l'image : </strong> <%= @item.image_url %><br/>
@@ -23,8 +22,26 @@
 </p>
 <%if current_user == admins%>
 	<%=link_to 'remove' ,item_path(@item.id),method:'delete'%>
-	<h2><i><%= link_to "Edit", edit_item_path %></i></h2>
+	<h2>
+		<i>
+			<%= link_to "Edit", edit_item_path %>
+		</i>
+	</h2>
 <%end%>
-<h4><i> <%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/> </i></h4>
-
+<%result = 1%>
+<%@cart.items.each do |find|%>
+	<%if find == @item%>
+		<%result = 0 %>
+		<%break%>
+	<%else%>
+		<%result = 1 %>
+	<%end%>
+<%end%>
+<%if result == 1 %>
+<h4>
+	<i>
+		<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/>
+	</i>
+</h4>
+<%end%>
 <h4><em><%= link_to "Back", :back %></em></h4>

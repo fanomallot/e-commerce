@@ -41,7 +41,19 @@
   							<%= item.title %><br>
 							<i> <%= link_to "See more", item_path(item.id) %><br/></i>
 							<%if user_signed_in?%>
-								<i> <%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/></i>
+								<%result = 1%>
+								<%@cart.items.each do |find|%>
+									<%if find == item%>
+										<%result = 0 %>
+										<%break%>
+									<%else%>
+										<%result = 1 %>
+									<%end%>
+								<%end%>
+
+								<%if result == 1 %>
+									<i> <%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/></i>
+								<%end%>
 							<%end%>
 						</div>
 					</div>
