@@ -21,12 +21,12 @@
 	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
 <%end%>
 <br/>
-<%=link_to 'index' ,admin_index_path%><br/>
 <%= link_to "Create en item", new_item_path %><br/>
 <h1>Liste des produits disponibles :</h1>
 <div class="main">
   <div class="row">
   	<% @item.each do |item| %>
+        <div class="column">
         	<div class="flip">
 				<div class="flip-card">
 					<div class="flip-card-inner">
@@ -46,7 +46,22 @@
 					</div>
 				</div>
 			</div>
+        </div>
 	<% end %>
   </div> 
 </div>
+</div>
+<div class="flip">
+	<div class="flip-card">
+		<div class="flip-card-inner">
+			<div class="flip-card-front">
+				<img src="i4.jpg" alt="Avatar" style="width:400px;height:400px;">
+			</div>
+			<div class="flip-card-back">
+				<h1>John Doe</h1>
+				<p>Architect & Engineer</p>
+				<p>The best cook in the world</p>
+			</div>
+		</div>
+	</div>
 </div>
