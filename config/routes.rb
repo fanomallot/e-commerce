@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   root to: "item#index"
   resources :item do
   	resources :avatars, only: [:create]
+    resources :cart, only: [:update]
   end
-  resources :cart
   resources :user do
     resources :profil, only: [:create]
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "item#index"
   resources :cart
-  resources :user
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :orders
+  resources :admin
 end
