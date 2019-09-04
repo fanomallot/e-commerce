@@ -14,4 +14,5 @@
 
  <%= form_tag '/orders', method:'post' do%> <%= submit_tag "Passer commande"%> 
  <%= hidden_field_tag :cart_id, @cart.id %>
+  <%= hidden_field_tag :prix, @price %>
  <% end %>
