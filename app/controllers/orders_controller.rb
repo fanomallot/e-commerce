@@ -15,6 +15,5 @@ class OrdersController < ApplicationController
 		else 
 			redirect_to cart_path(params[:cart_id])
 		end	
-	end
 
 end
