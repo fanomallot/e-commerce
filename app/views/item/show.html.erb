@@ -19,7 +19,8 @@
 	<strong> Prix : </strong> <%= @item.price %><br/>
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
-<%=link_to 'remove' ,item_path(@item.id),method:'delete'%>
-<h2><i><%= link_to "Edit", edit_item_path %></i></h2>
+<h4><i> <%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/> </i></h4>
+<h4><i> <%=link_to 'remove' ,item_path(@item.id),method:'delete'%> </i></h4>
+<h4><i> <%= link_to "Edit", edit_item_path %> </i></h4>
 
 <h4><em><%= link_to "Back", :back %></em></h4>
