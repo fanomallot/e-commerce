@@ -1,5 +1,5 @@
 module AdminHelper
 	def admins
-    User.first
-  end
+		User.first
+	end
 end
