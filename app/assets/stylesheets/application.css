@@ -93,7 +93,7 @@
 }
 
 #catfond{
-	border-radius: 12px;
+  border-radius: 12px;
 }
 .centered {
   position: absolute;
@@ -103,12 +103,13 @@
 }
 
 #catprofil{
-	border-radius: 50%;
-  	max-width: 200px;
-  	height: auto;
+  border-radius: 50%;
+    max-width: 200px;
+    height: auto;
 }
 .boxvide{
-  background-color: white;
+  background-image: url("fond.jpg");
+  background-size: cover;
   border: inset;
   border-color:black;
   height: 300px;

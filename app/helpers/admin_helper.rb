@@ -1,5 +1,5 @@
 module AdminHelper
 	def admins
-    User.find(1)
-  end
+		User.first
+	end
 end

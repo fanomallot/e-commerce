@@ -20,7 +20,7 @@ class UserController < ApplicationController
 	private
 	def is_current_user?
 		@user = User.find(params[:id])
-		if current_user == @user
+		if current_user == @user || @user == admins
 			return true
 		else
 			redirect_to root_path
