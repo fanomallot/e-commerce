@@ -6,6 +6,6 @@ after_create :welcome_send
   after_create :welcome_send
 
   def welcome_send
-    UserMailer.command_email(self.user).deliver_now
+    UserMailer.command_email(self.id).deliver_now
   end
 end

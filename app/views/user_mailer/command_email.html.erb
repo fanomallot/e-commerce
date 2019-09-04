@@ -5,6 +5,11 @@
   </head>
   <body>
     <h1>bonjour  et bienvenue chez nous !</h1>
+     <h2>les listes des items que vous venez de payer sont les suivants</h2>
+      <%@o.items.each do |i|%>
+      		<img src=<%=i.image_url %>>
+      	</br>
+      <%end%>
     <p>
       votre commande a été prise :
     </p>
