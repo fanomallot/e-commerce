@@ -2,6 +2,9 @@ class ItemController < ApplicationController
 
 	def index
 		@item = Item.all
+		if current_user.cart != nil
+			@cart = current_user.cart
+		end
 	end
 
 	def show

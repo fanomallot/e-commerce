@@ -12,9 +12,9 @@
 </div>
 <%if user_signed_in?%>
 	<%if current_user.cart != nil %>
-	<%=link_to 'voir le panier',cart_path(current_user.cart.id) %>
+	<%=link_to 'voir le panier', cart_path(current_user.cart.id) %>
 	<%else%>
-	<%=link_to "prendre un panier",cart_index_path,method: "post" %><br/>
+	<%=link_to "prendre un panier", cart_index_path, method: "post" %><br/>
 	<%end%>
 	<br/>
 <%else%>
@@ -40,7 +40,8 @@
 					  	<div class="flip-card-back">
   							<strong> Titre : </strong><br> 
   							<%= item.title %><br>
-							<i> <%= link_to "See more", item_path(item.id) %><br/> </i>
+							<i> <%= link_to "See more", item_path(item.id) %><br/></i>
+							<i> <%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/></i>
 						</div>
 					</div>
 				</div>
