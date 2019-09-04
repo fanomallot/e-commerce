@@ -6,11 +6,13 @@
 	<%else%>
 	  <p>=== This item has no photo yet ===</p>
 	<%end%>
+	<%if current_user == admins%>
 	  <h3>Upload new photo ?</h3>
 		<%= form_tag item_avatars_path(@item), multipart: true do %>
 		  <%= file_field_tag :avatar %>
 		  <%= submit_tag "mettre à jour" %>
 		<% end %>
+	<%end%>
 </p>
 
 <p>
@@ -19,7 +21,9 @@
 	<strong> Prix : </strong> <%= @item.price %><br/>
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
+<%if current_user == admins%>
 <%=link_to 'remove' ,item_path(@item.id),method:'delete'%>
 <h2><i><%= link_to "Edit", edit_item_path %></i></h2>
+<%end%>
 
 <h4><em><%= link_to "Back", :back %></em></h4>
