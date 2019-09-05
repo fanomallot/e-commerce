@@ -33,26 +33,34 @@
       </div>
       <div>
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header1</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header2</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header3</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header4</p>
-            </a>
-          </li>
+          <%if user_signed_in?%>
+            <%if current_user.cart != nil %>
+              <li class="nav-item">
+                <a class="nav-link" href="<%=cart_path(current_user.cart.id) %>">
+                  <p>voir mon panier</p>
+                </a>
+              </li>
+              <%if current_user == admins%>
+                <li class="nav-item">
+                  <a class="nav-link" href="<%=new_item_path%>">
+                    <p>Create an item</p>
+                  </a>
+                </li>
+              <%end%>
+            <%else%>
+              <li class="nav-item">
+                  <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
+                    <p>prendre un panier</p>
+                  </a>
+                </li>
+            <%end%>
+          <%else%>
+            <li class="nav-item">
+                <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
+                <p>prendre un panier</p>
+                </a>
+            </li>
+          <%end%>
           <li class="nav-item">
             <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/TonTsyHaiko" target="_blank">
               <i class="fab fa-twitter"></i>

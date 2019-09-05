@@ -15,11 +15,8 @@
   
 <%end%>
 <h4>total price: <%=@price%></h4>
-
-
- <%= form_tag new_order_path, method:'get' do%> <%= submit_tag "Passer commande"%> <br/>
- <%= hidden_field_tag :cart_id, @cart.id %>
- <%= hidden_field_tag :prix, @price %>
- <% end %>
- <h4><%= link_to "E-Commerce", root_path %></h4>
+<%= form_tag new_order_path, method:'get' do%>
+	<%= hidden_field_tag :prix, @price %>
+	<%= submit_tag "Passer commande"%> <br/>
+<% end %>
 
