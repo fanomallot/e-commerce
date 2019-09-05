@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      ECommerce
+     ECommerce
     </title>
 
     <%= csrf_meta_tags %>
@@ -20,6 +20,7 @@
 
     <link href="./assets/stylesheets/bootstrap.min.css" rel="stylesheet" />
     <link href="./assets/stylesheets/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
   <body>
@@ -28,45 +29,53 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="<%=root_path%>" data-placement="bottom">
-          e-Commerce
+        e-Commerce
         </a>
       </div>
       <div>
         <ul class="navbar-nav">
+          <%if user_signed_in?%>
+            <%if current_user.cart != nil %>
+              <li class="nav-item">
+                <a class="nav-link" href="<%=cart_path(current_user.cart.id) %>">
+                  <p>voir mon panier</p>
+                </a>
+              </li>
+              <%if current_user == admins%>
+                <li class="nav-item">
+                  <a class="nav-link" href="<%=new_item_path%>">
+                    <p>Create an item</p>
+                  </a>
+                </li>
+              <%end%>
+            <%else%>
+              <li class="nav-item">
+                  <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
+                    <p>prendre un panier</p>
+                  </a>
+                </li>
+            <%end%>
+          <%else%>
+            <li class="nav-item">
+                <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
+                <p>prendre un panier</p>
+                </a>
+            </li>
+          <%end%>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header1</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header2</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header3</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <p>header4</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/TonTsyHaiko" target="_blank">
+            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/" target="_blank">
               <i class="fab fa-twitter"></i>
               <p class="d-lg-none d-xl-none">Twitter</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/TonTsyHaiko" target="_blank">
+            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/" target="_blank">
               <i class="fab fa-facebook-square"></i>
               <p class="d-lg-none d-xl-none">Facebook</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/TonTsyHaiko" target="_blank">
+            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/" target="_blank">
               <i class="fab fa-instagram"></i>
               <p class="d-lg-none d-xl-none">Instagram</p>
             </a>
@@ -96,8 +105,13 @@
   </nav>
 </header>
 
+
     <%= yield %>
-<footer>
+<footer class=" border-top">
+  <div class="center">
+    <%= image_tag 'nav.png', alt: 'image 15', id:"cat" %><br>
+    <small >© 2017-2019</small>
+  </div>
 </footer>
   </body>
 </html>

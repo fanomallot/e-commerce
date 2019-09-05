@@ -1,5 +1,5 @@
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
-/home/dev/.rvm/rubies/ruby-2.5.1/bin/ruby -I /home/dev/.rvm/rubies/ruby-2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20190902-13592-h70fbz.rb extconf.rb
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
+/home/dev/.rvm/rubies/ruby-2.5.1/bin/ruby -I /home/dev/.rvm/rubies/ruby-2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20190905-15356-wj0s8e.rb extconf.rb
 checking for unistd.h... yes
 checking for sys/select.h... yes
 checking for port_event_t in poll.h... no
@@ -9,10 +9,10 @@ checking for port_event_t in port.h... no
 checking for sys/resource.h... yes
 creating Makefile
 
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
 make "DESTDIR=" clean
 
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
 make "DESTDIR="
 compiling bytebuffer.c
 compiling monitor.c
@@ -489,6 +489,6 @@ cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand�
 cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
 linking shared-object nio4r_ext.so
 
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/nio4r-2.5.1/ext/nio4r
 make "DESTDIR=" install
-/usr/bin/install -m 0755 nio4r_ext.so ./.gem.20190902-13592-rglylt
+/usr/bin/install -m 0755 nio4r_ext.so ./.gem.20190905-15356-uzzoao

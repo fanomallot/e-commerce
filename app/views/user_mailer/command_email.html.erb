@@ -1,0 +1,18 @@
+<<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut  et bienvenue chez nous !</h1>
+    <p>
+      Votre command a été prise en compte 
+    </p>
+<h4>
+  Vous venez de payer votre items qui sont les suivantes:
+</h4>
+  <%@o.items.each do |item|%>
+    <img src= <%=item.image_url%>>
+  <%end%>  
+  </body>
+</html>

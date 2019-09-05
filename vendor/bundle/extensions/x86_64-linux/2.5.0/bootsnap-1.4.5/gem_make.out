@@ -1,11 +1,11 @@
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
-/home/dev/.rvm/rubies/ruby-2.5.1/bin/ruby -I /home/dev/.rvm/rubies/ruby-2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20190902-13592-1yogpk6.rb extconf.rb
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+/home/dev/.rvm/rubies/ruby-2.5.1/bin/ruby -I /home/dev/.rvm/rubies/ruby-2.5.1/lib/ruby/site_ruby/2.5.0 -r ./siteconf20190905-15356-16tvnys.rb extconf.rb
 creating Makefile
 
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
 make "DESTDIR=" clean
 
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
 make "DESTDIR="
 compiling bootsnap.c
 bootsnap.c: In function ‘get_ruby_platform’:
@@ -33,6 +33,6 @@ cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand�
 cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
 linking shared-object bootsnap/bootsnap.so
 
-current directory: /home/dev/Bureau/fax/week9/projet/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+current directory: /home/dev/Bureau/fax/week9/e-commerce/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
 make "DESTDIR=" install
-/usr/bin/install -m 0755 bootsnap.so ./.gem.20190902-13592-196n23o/bootsnap
+/usr/bin/install -m 0755 bootsnap.so ./.gem.20190905-15356-17f9kc1/bootsnap

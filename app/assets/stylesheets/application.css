@@ -93,7 +93,7 @@
 }
 
 #catfond{
-	border-radius: 12px;
+  border-radius: 12px;
 }
 .centered {
   position: absolute;
@@ -103,26 +103,28 @@
 }
 
 #catprofil{
-	border-radius: 50%;
-  	max-width: 200px;
-  	height: auto;
+  border-radius: 50%;
+    max-width: 200px;
+    height: auto;
 }
 .boxvide{
-  background-color: white;
+  background-image: url("fond.jpg");
+  background-size: cover;
   border: inset;
   border-color:black;
   height: 300px;
   width: 300px;
-
+  border-radius: 20px;
 }
 /*==============================================*/
 /************* Ajout de style sur les phot ******/
 /*===============================================*/
 .flip {
+  margin-left: 23px;
   margin-bottom: 20px ;
 }
 .flip-card {
-  margin-right:100px;
+  margin-right:20px;
   display: inline-block;
   background-color: transparent;
   width: 300px;
@@ -146,6 +148,7 @@
 }
 
 .flip-card-front, .flip-card-back {
+  border-radius: 20px;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -153,15 +156,111 @@
 }
 
 .flip-card-front {
-    margin-bottom: 10px;
   background-color: #bbb;
   color: black;
 }
 
 .flip-card-back {
-  margin-top: 10px;
-  position: absolute;
-  background-color: #2980b9;
-  color: white;
+  border-radius: 20px;
+  background-position: center;
+  background-size: cover;
   transform: rotateY(180deg);
+}
+img{
+  border-radius: 10px;
+}
+#cat{
+  width: 100px;
+  height: 100px;
+}
+/*=========================================*/
+/*type style css fait maison*/
+/*changer les couleur, faire des boutons*/
+/*=======================================*/
+.center{
+  text-align: center;
+}
+.supprime{
+  border-radius: 10px;
+  border-color: #ff0303;
+  background-color: white;
+  color: #ff0303;
+  padding: 10px;
+}
+.supprime:hover{
+  background-color: #ff0303;
+  color: white;
+}
+.vert{
+  border-radius: 10px;
+  border-color: #11cf17;
+  background-color: white;
+  color: #11cf17;
+  padding: 10px;
+}
+.vert:hover{
+  background-color: #11cf17;
+  color: white;
+}
+.bleu{
+  border-radius: 10px;
+  border-color: #08a8ff;
+  background-color: white;
+  color: #08a8ff;
+  padding: 10px;
+}
+.bleu:hover{
+  background-color: #08a8ff;
+  color: white;
+}
+#blanche{
+  color: white;
+}
+#couleur{
+color:white;
+-webkit-text-stroke:0.5px;
+-webkit-text-stroke-color:#1ec9be;
+
+}
+.ground{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;  
+  padding-bottom:200px;
+  padding-top: 50px;
+}
+.cartshow{
+  background-image: url("ground2.jpg");
+}
+.itemshow{
+  background-image: url("ground7.jpg");
+  padding-left:10px;
+  padding-top: 150px;
+}
+.mar {
+  
+  margin-top: 10px;
+  }
+.w3-container {
+  display: inline-block;
+  margin-left: 50px
+}
+/*.w3-border {
+  border-color: transparent;
+  border-radius: 10px; 
+  margin-top: 200px;
+  padding: 0;
+ }*/
+ .transparent {
+  background-color: transparent;
+ }
+.w2 {
+  position: absolute;
+  display: inline-block;
+  margin-left: 50px;
+}
+.w2-border {
+  margin-top: 200px;
+  width:550px;
 }
