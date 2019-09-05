@@ -6,11 +6,16 @@ gem 'table_print'
 gem 'faker'
 gem 'devise'
 
+
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 gem "letter_opener", :group => :development
 gem 'dotenv-rails'
 
 gem 'stripe'
+
+
+gem 'stripe'
+gem 'dotenv-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
