@@ -1,3 +1,4 @@
+
 <h1>Tadaaammmm...</h1>
 <h3>Voici le detail de ce produit :</h3>
 <p>
@@ -21,7 +22,8 @@
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
 <%if current_user == admins%>
-	<%=link_to 'remove' ,item_path(@item.id),method:'delete'%>
+
+	<%=link_to 'Remove' ,item_path(@item.id),method:'delete'%>
 	<h2>
 		<i>
 			<%= link_to "Edit", edit_item_path %>
@@ -29,12 +31,29 @@
 	</h2>
 <%end%>
 <%result = 1%>
-<%if current_user.cart != nil %>
-	<%if @cart.items.length == nil%>
+<%@cart.items.each do |find|%>
+	<%if find == @item%>
+		<%result = 0 %>
+		<%break%>
+	<%else%>
+		<%result = 1 %>
+	<%end%>
+<%end%>
+<%if result == 1 %>
+<h4>
+	<i>
+		<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/>
+	</i>
+</h4>
+<%end%>
+
+
+<%if current_user.cart != nil%>
+	<% if @cart.items.length == nil %>
 		<i>
 			<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/>
 		</i>
-	<%else%>
+	<% else %>
 		<%@cart.items.each do |find|%>
 			<%if find == @item%>
 				<%result = 0 %>
@@ -52,4 +71,8 @@
 		<%end%>
 	<%end%>
 <%end%>
+<<<<<<< HEAD
+
+=======
+>>>>>>> development
 <h4><em><%= link_to "Back", :back %></em></h4>

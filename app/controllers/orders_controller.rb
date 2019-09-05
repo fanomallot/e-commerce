@@ -1,42 +1,44 @@
 class OrdersController < ApplicationController
 
 	def new
-		@item
+		@totalprice = params[:prix]
 	end
+
+
+
 
 	def create
-		o = Order.new(user:current_user)
+
+		a = 5000
+		customer = Stripe::Customer.create({
+		email: params[:stripeEmail],
+		source: params[:stripeToken],
+		})
+
+		charge = Stripe::Charge.create({
+		customer: customer.id,
+		amount: a,
+		description: 'Rails Stripe customer',
+		currency: 'usd',
+		})
+
+		@o = Order.new(user:current_user)
 		c = Cart.find(params[:cart_id])
 		puts "*"*90
+		puts params[:cart_id]
 		puts c.items
-		o.items = c.items
-		if o.save 
-			# Amount in cents
-			@totalprice = params[:prix]
-		  @amount = @totalprice
+		@o.items = c.items
 
-		  customer = Stripe::Customer.create({
-		    email: params[:stripeEmail],
-		    source: params[:stripeToken],
-		  })
+		if @o.save
+		current_user.cart.items = []
+		redirect_to root_path
+		else
+		redirect_to orders_path(params[:cart_id])
+		end
 
-		  charge = Stripe::Charge.create({
-		    customer: customer.id,
-		    amount: @amount,
-		    description: 'Rails Stripe customer',
-		    currency: 'usd',
-		  })
-
-			c.items = []
-			  redirect_to root_path
-
-			# rescue Stripe::CardError => e
-			#   flash[:error] = e.message
-			# end
-			
-		else 
-			redirect_to cart_path(params[:cart_id])
-		end	
+		rescue Stripe::CardError => e
+		flash[:error] = e.message 
 	end
+
 
 end
