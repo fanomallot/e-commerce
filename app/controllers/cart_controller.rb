@@ -39,11 +39,13 @@ class CartController < ApplicationController
 	end
 	private
 	def is_cart_user?
-		@cart = Cart.find(params[:id])
-		if current_user == @cart.user || current_user == admins
-			return true
-		else
-			redirect_to root_path
+		if current_user.cart != nil
+			@cart = Cart.find(params[:id])
+			if current_user == @cart.user || current_user == admins
+				return true
+			else
+				redirect_to root_path
+			end
 		end
 	end
 end
