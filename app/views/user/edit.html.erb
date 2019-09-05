@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>
-        E-Commerce
-        </title>
-    </head>
-<body>
-    <div style="text-align:center; color: blue">
+<div class="ground usershow">
+    <div class="edituser">
         <h1><strong>Edit Profil</strong></h1>
         <%=form_tag url_for(action: 'update'),method: 'put' %>
             First_name : <br/>
@@ -20,6 +12,6 @@
             <textarea type="text" name="description"><%=@user.description %></textarea><br>
             <input type="submit" value="Update profil"><br>
     </div>
+</div>
 
-</body>
 

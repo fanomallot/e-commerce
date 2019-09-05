@@ -103,9 +103,9 @@
 }
 
 #catprofil{
-  border-radius: 50%;
-    max-width: 200px;
-    height: auto;
+  border-radius: 100%;
+  max-width: 300px;
+  height: 300px;
 }
 .boxvide{
   background-image: url("fond.jpg");
@@ -246,13 +246,7 @@ color:white;
   display: inline-block;
   margin-left: 50px
 }
-/*.w3-border {
-  border-color: transparent;
-  border-radius: 10px; 
-  margin-top: 200px;
-  padding: 0;
- }*/
- .transparent {
+.transparent {
   background-color: transparent;
  }
 .w2 {
@@ -263,4 +257,31 @@ color:white;
 .w2-border {
   margin-top: 200px;
   width:550px;
+}
+.cart{
+  width: 50px;
+  height: 30px;
+}
+.bigcart{
+  width: 80px;
+  height: 70px;
+}
+.vertdur{
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #11cf17;
+  color: white;
+  padding: 10px;
+}
+.vertdur:hover{
+  color: #08a8ff;
+}
+.usershow{
+  background-image: url("ground8.jpg");
+  padding-top: 100px;
+
+}
+.edituser{
+text-align: center;
+color: black;
 }

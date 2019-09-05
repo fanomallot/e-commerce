@@ -38,7 +38,7 @@
             <%if current_user.cart != nil %>
               <li class="nav-item">
                 <a class="nav-link" href="<%=cart_path(current_user.cart.id) %>">
-                  <p>voir mon panier</p>
+                  <p><%=current_user.cart.items.count%> <%= image_tag 'cart1.jpg', alt: 'image',class:'cart' %></p>
                 </a>
               </li>
               <%if current_user == admins%>
@@ -51,14 +51,14 @@
             <%else%>
               <li class="nav-item">
                   <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
-                    <p>prendre un panier</p>
+                    <p>prendre un panier <%= image_tag 'cart.jpg', alt: 'image',class:'cart' %></p>
                   </a>
                 </li>
             <%end%>
           <%else%>
             <li class="nav-item">
                 <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
-                <p>prendre un panier</p>
+                <p>prendre un panier <%= image_tag 'cart.jpg', alt: 'image',class:'cart' %></p>
                 </a>
             </li>
           <%end%>
