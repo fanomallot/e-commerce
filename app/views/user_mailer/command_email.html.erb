@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
@@ -6,11 +6,13 @@
   <body>
     <h1>Salut  et bienvenue chez nous !</h1>
     <p>
-      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : .
+      Votre command a été prise en compte 
     </p>
-    <p>
-      Pour accéder à ton espace client, connecte-toi via : .
-    </p>
-    <p> À très vite sur monsite.fr !
+<h4>
+  Vous venez de payer votre items qui sont les suivantes:
+</h4>
+  <%@o.items.each do |item|%>
+    <img src= <%=item.image_url%>>
+  <%end%>  
   </body>
 </html>

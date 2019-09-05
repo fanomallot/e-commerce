@@ -19,6 +19,9 @@ class OrdersController < ApplicationController
 
 		@o = Order.new(user:current_user)
 		c = current_user.cart
+		puts "*"*90
+		puts params[:cart_id]
+		puts c.items
 		@o.items = c.items
 
 		if @o.save
