@@ -1,74 +1,91 @@
 
-<h1>Tadaaammmm...</h1>
-<h3>Voici le detail de ce produit :</h3>
-<p>
-	<%if @item.avatar.attached?%>
-		<%= image_tag @item.avatar, alt: 'avatar',style:"width: 350px;height:300px"  %>
-	<%else%>
-		<p>=== This item has no photo yet ===</p>
-	<%end%>
-	<%if current_user == admins%>
-		<h3>Upload new photo ?</h3>
-		<%= form_tag item_avatars_path(@item), multipart: true do %>
-			<%= file_field_tag :avatar %>
-			<%= submit_tag "mettre à jour" %>
-		<% end %>
-	<%end%>
-</p>
-<p>
-	<strong> Titre : </strong> <%= @item.title %><br/>
-	<strong> L'URL de l'image : </strong> <%= @item.image_url %><br/>
-	<strong> Prix : </strong> <%= @item.price %><br/>
-	<strong> Description : </strong> <%= @item.description %><br/>
-</p>
-<%if current_user == admins%>
+<div class="ground itemshow">
+	<div class="mar">
+		<div class="w3-container">
+			<ul class="w3-ul ">
+				<div class="transparent"> 
+					<li>
+						<p>
+						<%if @item.avatar.attached?%>
+							<%= image_tag @item.avatar, alt: 'avatar',style:"width: 550px;height:600px"  %>
+						<%else%>
+							<p>=== This item has no photo yet ===</p>
+						<%end%>
+						<%if current_user == admins%>
+							<h3>Upload new photo ?</h3>
+							<%= form_tag item_avatars_path(@item), multipart: true do %>
+								<%= file_field_tag :avatar %>
+								<%= submit_tag "mettre à jour" %>
+							<% end %>
+						<%end%>
+					  </p>
+					</li>
+				</div>
+			</ul>
+		</div>
+		<div class="w2">
+			<ul class="w3-ul w2-border">
+				<div class="transparent"> 
+					<li>
+						<div id="blanche">	
+							<h3>Détail du produit :</h3>
+							<strong> Titre : </strong> <%= @item.title %><br/>
+							<strong> Prix : </strong> $<%= @item.price %><br/>
+							<strong> Description : </strong><%= @item.description %> <br/>
+							<%result = 1%>
+							<%@cart.items.each do |find|%>
+								<%if find != @item%>
+									<%result = 0 %>
+									<%break%>
+								<%else%>
+									<%result = 1 %>
+								<%end%>
+							<%end%>
+							<%if result == 1 %>
+							<h4>
+								<i>
+									<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}",class:"bleu" , method: "put" %><br/><br/>
+								</i>
+							</h4>
+							<%end%>
+							<%if current_user.cart != nil%>
+								<% if @cart.items.length == nil %>
+									<i>
+										<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}",class:"bleu" , method: "put" %><br/><br/>
+									</i>
+								<% else %>
+									<%@cart.items.each do |find|%>
+										<%if find == @item%>
+											<%result = 0 %>
+											<%break%>
+										<%else%>
+											<%result = 1 %>
+										<%end%>
+									<%end%>
+									<%if result == 1 %>
+									<h4>
+										<i>
+											<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}",class:"bleu" , method: "put" %><br/><br/>
+										</i>
+									</h4>
+									<%end%>
+								<%end%>
+							<%end%>
+							<%if current_user == admins%>
+								<i>
+									<%= link_to "Edit", edit_item_path,class:"vert"%>
+								</i>
+						
+								<%=link_to 'Remove' ,item_path(@item.id),class:"supprime" ,method:'delete'%>
+							<%end%>	
+						</div>
+					</li>
+				</div>
+			</ul>
+		</div>
+	</div>
+</div>
 
-	<%=link_to 'Remove' ,item_path(@item.id),method:'delete'%>
-	<h2>
-		<i>
-			<%= link_to "Edit", edit_item_path %>
-		</i>
-	</h2>
-<%end%>
-<%result = 1%>
-<%@cart.items.each do |find|%>
-	<%if find != @item%>
-		<%result = 0 %>
-		<%break%>
-	<%else%>
-		<%result = 1 %>
-	<%end%>
-<%end%>
-<%if result == 1 %>
-<h4>
-	<i>
-		<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/>
-	</i>
-</h4>
-<%end%>
 
 
-<%if current_user.cart != nil%>
-	<% if @cart.items.length == nil %>
-		<i>
-			<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/>
-		</i>
-	<% else %>
-		<%@cart.items.each do |find|%>
-			<%if find == @item%>
-				<%result = 0 %>
-				<%break%>
-			<%else%>
-				<%result = 1 %>
-			<%end%>
-		<%end%>
-		<%if result == 1 %>
-		<h4>
-			<i>
-				<%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/>
-			</i>
-		</h4>
-		<%end%>
-	<%end%>
-<%end%>
-<h4><em><%= link_to "Back", :back %></em></h4>
+
