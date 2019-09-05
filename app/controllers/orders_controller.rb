@@ -1,12 +1,7 @@
 class OrdersController < ApplicationController
-
 	def new
 		@totalprice = params[:prix]
 	end
-
-
-
-
 	def create
 
 		a = 5000
@@ -36,6 +31,4 @@ class OrdersController < ApplicationController
 		rescue Stripe::CardError => e
 		flash[:error] = e.message 
 	end
-
-
 end
