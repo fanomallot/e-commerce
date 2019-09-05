@@ -58,7 +58,7 @@
 										<%end%>
 										<%if result == 1 %>
 											<h4>
-												
+											<i><%= link_to "Ajouter au panier", "/item/#{@item.id}/cart/#{@cart.id}", method: "put" %><br/></i>
 											</h4>
 										<%end%>
 									<%end%>

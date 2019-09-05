@@ -24,8 +24,8 @@ class OrdersController < ApplicationController
 
 		current_user.cart.items = []
 
-	rescue Stripe::CardError => e
-		flash[:error] = e.message
-		redirect_to root_path
+		rescue Stripe::CardError => e
+			flash[:error] = e.message
+			redirect_to root_path
 	end
 end

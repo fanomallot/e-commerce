@@ -21,12 +21,10 @@
 	<strong> Description : </strong> <%= @item.description %><br/>
 </p>
 <%if current_user == admins%>
-	<%=link_to 'remove' ,item_path(@item.id),method:'delete'%>
-	<h2>
-		<i>
-			<%= link_to "Edit", edit_item_path %>
-		</i>
-	</h2>
+	<h2><i>
+		<%=link_to 'remove' ,item_path(@item.id),method:'delete'%>	
+		<%= link_to "Edit", edit_item_path %>	
+	</i></h2>
 <%end%>
 <%result = 1%>
 <%if current_user.cart != nil%>
