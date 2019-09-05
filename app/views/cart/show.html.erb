@@ -5,7 +5,9 @@
     <h5 name:<%=i.id%>>
     	<%= form_tag  cart_path(@cart.id) , method: :delete do%>
     	<%= hidden_field_tag :item_id, i.id %>
-    		<%= submit_tag "Supprimer item"%>
+
+    		<%= submit_tag "Delete item"%>
+
     </h5>
     <% end %> 
 	</br>	
@@ -14,7 +16,10 @@
 <%end%>
 <h4>total price: <%=@price%></h4>
 
- <%= form_tag "/orders", method:'post' do%> <%= submit_tag "Passer commande"%> 
-    <%= hidden_field_tag :cart_id, @cart.id %>
-    <%= hidden_field_tag :prix, @price %>
+
+ <%= form_tag new_order_path, method:'get' do%> <%= submit_tag "Passer commande"%> <br/>
+ <%= hidden_field_tag :cart_id, @cart.id %>
+ <%= hidden_field_tag :prix, @price %>
  <% end %>
+ <h4><%= link_to "E-Commerce", root_path %></h4>
+

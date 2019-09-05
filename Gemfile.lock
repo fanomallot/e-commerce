@@ -91,8 +91,11 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+<<<<<<< HEAD
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+=======
+>>>>>>> development
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
@@ -141,7 +144,10 @@ GEM
     multipart-post (2.1.1)
     net-http-persistent (3.1.0)
       connection_pool (~> 2.2)
+<<<<<<< HEAD
     netrc (0.11.0)
+=======
+>>>>>>> development
     nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)

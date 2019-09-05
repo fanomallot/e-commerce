@@ -5,6 +5,7 @@ ruby '2.5.1'
 gem 'table_print'
 gem 'faker'
 gem 'devise'
+<<<<<<< HEAD
 
 
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
@@ -17,6 +18,11 @@ gem 'stripe'
 gem 'stripe'
 gem 'dotenv-rails'
 
+=======
+gem 'stripe'
+gem 'dotenv-rails'
+gem 'letter_opener'
+>>>>>>> development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
