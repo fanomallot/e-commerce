@@ -23,10 +23,7 @@ class OrdersController < ApplicationController
 		})
 
 		@o = Order.new(user:current_user)
-		c = Cart.find(params[:cart_id])
-		puts "*"*90
-		puts params[:cart_id]
-		puts c.items
+		c = current_user.cart
 		@o.items = c.items
 
 		if @o.save
