@@ -27,7 +27,7 @@ class CartController < ApplicationController
 		@cart = Cart.find(current_user.cart.id)
 		@item = Item.find(params[:item_id])
 		@cart.items << @item
-		redirect_to root_path
+		redirect_back fallback_location: '/' ,allow_other_host: false
 	end
 
 	def destroy

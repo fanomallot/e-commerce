@@ -7,14 +7,14 @@ class OrdersController < ApplicationController
 		a = 5000
 		customer = Stripe::Customer.create({
 		email: params[:stripeEmail],
-		source: params[:stripeToken],
+		source: params[:stripeToken]
 		})
 
 		charge = Stripe::Charge.create({
 		customer: customer.id,
 		amount: a,
 		description: 'Rails Stripe customer',
-		currency: 'usd',
+		currency: 'usd'
 		})
 
 		@o = Order.new(user:current_user)

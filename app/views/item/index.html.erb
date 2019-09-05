@@ -1,84 +1,82 @@
 <body class="index-page sidebar-collapse">
-  <div class="wrapper">
-<div class="page-header clear-filter" filter-color="orange">
-  <div >
-  </div>
-  <div class="container">
-    <div class="content-center brand">
-      <%= image_tag 'i15.jpg', alt: 'image 15', id:"catfond" %>
-       <div class="centered"><h1 style="opacity: 0.5">Cat</h1></div>
-    </div>
-  </div>
-</div>
-<h1>Liste des produits disponibles :</h1>
-<div class="main">
-  <div class="row">
-  	<% @item.each do |item| %>
-		<%if item.avatar.attached?%>
-        	<div class="flip">
-				<div class="flip-card">
-					<div class="flip-card-inner">
-						<div class="flip-card-front">
-	  							<%= image_tag item.avatar, alt: 'avatar',style:"width: 300px; height:300px"  %><br>
-					  	</div>
-					  	<div class="flip-card-back">
-  							<strong> Titre : </strong><br> 
-  							<%= item.title %><br>
-							<i> <%= link_to "See more", item_path(item.id) %><br/></i>
-							<%if user_signed_in?%>
-
-								<%if current_user.cart != nil %>
-									<%if @cart.items.length == nil%>
-										<i>
-											<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/>
-										</i>
-									<%else%>
-										<%result = 1 %>
-										<%@cart.items.each do |find|%>
-											<%if find == @item%>
-												<%result = 0 %>
-												<%break%>
-											<%else%>
-												<%result = 1 %>
-											<%end%>
-										<%end%>
-										<%if result == 1 %>
-											<h4>
-												<i>
-													<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/>
-												</i>
-											</h4>
-										<%end%>
-									<%end%>
-								<%end%>
-
-							<%end%>
-						</div>
-					</div>
-				</div>
-			</div>
-		<%else%>
-			<%if user_signed_in?%>
-				<%if current_user == admins%>
-					<div class="flip">
+	<div class="wrapper">
+		<div class="page-header clear-filter" filter-color="orange">
+		  <div >
+		  </div>
+		  <div class="container">
+		    <div class="content-center brand">
+		      <%= image_tag 'i15.jpg', alt: 'image 15', id:"catfond" %>
+		       <div class="centered"><h1 style="opacity: 0.5">Cat</h1></div>
+		    </div>
+		  </div>
+		</div>
+		<h1>Liste des produits disponibles :</h1>
+		<div class="main">
+		  <div class="row">
+		  	<% @item.each do |item| %>
+				<%if item.avatar.attached?%>
+		        	<div class="flip">
 						<div class="flip-card">
 							<div class="flip-card-inner">
-								<div class="flip-card-front">		
-							  		<div class="boxvide"> </div>
+								<div class="flip-card-front">
+			  							<%= image_tag item.avatar, alt: 'avatar',style:"width: 300px; height:300px"%><br>
 							  	</div>
 							  	<div class="flip-card-back">
 		  							<strong> Titre : </strong><br> 
 		  							<%= item.title %><br>
-									<i> <%= link_to "See more", item_path(item.id) %><br/> </i>
+									<i> <%= link_to "See more", item_path(item.id) %><br/></i>
+									<%if user_signed_in?%>
+										<%if current_user.cart != nil %>
+											<%if @cart.items.length == nil%>
+												<i>
+													<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/>
+												</i>
+											<%else%>
+												<%result = 1 %>
+												<%@cart.items.each do |find|%>
+													<%if find == item%>
+														<%result = 0 %>
+														<%break%>
+													<%else%>
+														<%result = 1 %>
+													<%end%>
+												<%end%>
+												<%if result == 1 %>
+													<h4>
+														<i>
+															<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/>
+														</i>
+													</h4>
+												<%end%>
+											<%end%>
+										<%end%>
+									<%end%>
 								</div>
 							</div>
 						</div>
 					</div>
+				<%else%>
+					<%if user_signed_in?%>
+						<%if current_user == admins%>
+							<div class="flip">
+								<div class="flip-card">
+									<div class="flip-card-inner">
+										<div class="flip-card-front">		
+									  		<div class="boxvide"> </div>
+									  	</div>
+									  	<div class="flip-card-back">
+				  							<strong> Titre : </strong><br> 
+				  							<%= item.title %><br>
+											<i> <%= link_to "See more", item_path(item.id) %><br/> </i>
+										</div>
+									</div>
+								</div>
+							</div>
+						<%end%>
+					<%end%>
 				<%end%>
-			<%end%>
-		<%end%>
-	<% end %>
-  </div> 
-</div>
-</div>
+			<% end %>
+		  </div> 
+		</div>
+	</div>
 </body>

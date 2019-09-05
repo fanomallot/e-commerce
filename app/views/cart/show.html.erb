@@ -1,22 +1,44 @@
-<%@cart.items.each do |i|%>
-<div id <%=i.id%> >
-	<h4> <%=i.title %> <%= i.price%> </h4> 
-	<%item_id = i.id%>
-    <h5 name:<%=i.id%>>
-    	<%= form_tag  cart_path(@cart.id) , method: :delete do%>
-    	<%= hidden_field_tag :item_id, i.id %>
-
-    		<%= submit_tag "Delete item"%>
-
-    </h5>
-    <% end %> 
-	</br>	
+<div class="cartshow">
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4" id="blanche">Mon panier</h1>
+    <p class="lead" id="blanche">Here is your own photos liste where you can change ,add and modif before buying.</p>
+    <div class="center">
+      <%if @cart.items.count != 0 %>
+      <h4 id="couleur">total price:$<%=@price.round(2)%></h4>
+      <%= form_tag new_order_path, method:'get' do%>
+      <%= hidden_field_tag :prix, @price %>
+      <%= submit_tag "Passer au commande" , class:'vert'%> <br/>
+      <% end %>
+      <%end%>
+    </div>
+  </div>
+  <div class="container" >
+    <div class="card-deck mb-3 text-center ">
+      <%@cart.items.each do |i|%>
+      <div class="card mb-4 shadow-sm bg-transparent" id="blanche">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal"><strong><%=i.title %></strong></h4>
+        </div>
+        <div class="card-body ">
+          <h1 class="card-title pricing-card-title">$<%= i.price%></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><%= image_tag i.avatar, alt: 'avatar',style:"width: 80px; height:80px"  %></li>
+            <li id="couleur"><%=i.description%> </li>
+          </ul>
+          <%= form_tag  cart_path(@cart.id) , method: :delete do%>
+          <%= hidden_field_tag :item_id, i.id %>
+          <%= submit_tag "Delete item" , class:'supprime'%>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%if @cart.items.count == 0 %>
+  <div class="center">
+    <p class="lead" id="blanche">
+      Vous n'avez pas encore de produit dans votre panier,click <%=link_to 'ici',root_path%> pour les voire et y ajouter de dans .
+    </p>
+  </div>
+  <%end%>
 </div>
-  
-<%end%>
-<h4>total price: <%=@price%></h4>
-<%= form_tag new_order_path, method:'get' do%>
-	<%= hidden_field_tag :prix, @price %>
-	<%= submit_tag "Passer commande"%> <br/>
-<% end %>
-

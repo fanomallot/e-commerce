@@ -167,5 +167,56 @@
   transform: rotateY(180deg);
 }
 img{
-  border-radius: 20px;
+  border-radius: 10px;
+}
+#cat{
+  width: 100px;
+  height: 100px;
+}
+/*=========================================*/
+/*type style css fait maison*/
+/*changer les couleur, faire des boutons*/
+/*=======================================*/
+.center{
+  text-align: center;
+}
+.supprime{
+  border-radius: 10px;
+  border-color: #ff0303;
+  background-color: white;
+  color: #ff0303;
+  padding: 10px;
+}
+.supprime:hover{
+  background-color: #ff0303;
+  color: white;
+}
+.vert{
+  border-radius: 10px;
+  border-color: #11cf17;
+  background-color: white;
+  color: #11cf17;
+  padding: 10px;
+}
+.vert:hover{
+  background-color: #11cf17;
+  color: white;
+}
+#blanche{
+  color: white;
+}
+#couleur{
+color:white;
+-webkit-text-stroke:0.5px;
+-webkit-text-stroke-color:#1ec9be;
+
+}
+.cartshow{
+  background-image: url("ground2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-bottom:200px;
+  padding-top: 50px;
 }
