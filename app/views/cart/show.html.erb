@@ -22,7 +22,11 @@
         <div class="card-body ">
           <h1 class="card-title pricing-card-title">$<%= i.price%></h1>
           <ul class="list-unstyled mt-3 mb-4">
-            <li><%= image_tag i.avatar, alt: 'avatar',style:"width: 80px; height:80px"  %></li>
+            <li>
+              <a href="<%=item_path(i.id)%>">
+              <%= image_tag i.avatar, alt: 'avatar',style:"width: 80px; height:80px"  %>
+              </a>
+            </li>
             <li id="couleur"><%=i.description%> </li>
           </ul>
           <%= form_tag  cart_path(@cart.id) , method: :delete do%>

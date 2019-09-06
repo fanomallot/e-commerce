@@ -94,6 +94,7 @@
 
 #catfond{
   border-radius: 12px;
+  /*width: 2500px;*/
 }
 .centered {
   position: absolute;
@@ -103,9 +104,9 @@
 }
 
 #catprofil{
-  border-radius: 50%;
-    max-width: 200px;
-    height: auto;
+  border-radius: 100%;
+  max-width: 300px;
+  height: 300px;
 }
 .boxvide{
   background-image: url("fond.jpg");
@@ -183,13 +184,12 @@ img{
 .supprime{
   border-radius: 10px;
   border-color: #ff0303;
-  background-color: white;
-  color: #ff0303;
+  background-color: #ff0303;
+  color: white;
   padding: 10px;
 }
 .supprime:hover{
-  background-color: #ff0303;
-  color: white;
+  color: green;
 }
 .vert{
   border-radius: 10px;
@@ -230,6 +230,12 @@ color:white;
   padding-bottom:200px;
   padding-top: 50px;
 }
+.newsession{
+  background-image: url("new2.jpg");
+}
+.newregistre{
+  background-image: url("new6.jpg");
+}
 .cartshow{
   background-image: url("ground2.jpg");
 }
@@ -246,13 +252,7 @@ color:white;
   display: inline-block;
   margin-left: 50px
 }
-/*.w3-border {
-  border-color: transparent;
-  border-radius: 10px; 
-  margin-top: 200px;
-  padding: 0;
- }*/
- .transparent {
+.transparent {
   background-color: transparent;
  }
 .w2 {
@@ -263,4 +263,40 @@ color:white;
 .w2-border {
   margin-top: 200px;
   width:550px;
+}
+.cart{
+  width: 50px;
+  height: 30px;
+}
+.bigcart{
+  width: 80px;
+  height: 70px;
+}
+.vertdur{
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #11cf17;
+  color: white;
+  padding: 10px;
+}
+.vertdur:hover{
+  color: #08a8ff;
+  background-color: #11cf17;
+}
+.usershow{
+  background-image: url("ground8.jpg");
+  padding-top: 100px;
+
+}
+.edituser{
+text-align: center;
+color: black;
+}
+.itemindex{
+/*background-color: #0367fc;*/
+background-image: url("images.jpg");
+
+}
+.row{
+  background-image: url();
 }

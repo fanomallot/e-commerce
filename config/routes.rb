@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   get 'avatars/create'
   devise_for :users
-  root to: "item#index"
-  resources :item do
+  root to: "admin#index"
+  resources :item ,path: '/produit'  do
   	resources :avatars, only: [:create]
-    resources :cart, only: [:update]
+    resources :cart, only: [:update] 
   end
-  resources :user do
+  resources :user , path: '/mon_profil' do
     resources :profil, only: [:create]
   end
-  resources :cart
+  resources :cart , path: '/mon_panier'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :orders
+  resources :orders , path: '/commande'
   resources :admin
 end

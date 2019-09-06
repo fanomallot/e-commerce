@@ -1,17 +1,19 @@
 <body class="index-page sidebar-collapse">
 	<div class="wrapper">
-		<div class="page-header clear-filter" filter-color="orange">
+  <div class="ground itemindex">
+		<div class="page-header clear-filter">
 		  <div >
 		  </div>
 		  <div class="container">
-		    <div class="content-center brand">
-		      <%= image_tag 'i15.jpg', alt: 'image 15', id:"catfond" %>
+		   <!--  <div class="content-center brand"> -->
+		      <%= image_tag 'acceuil.jpg', alt: 'image 15', id:"catfond" %>
 		       <div class="centered"><h1 style="opacity: 0.5">Cat</h1></div>
 		    </div>
 		  </div>
 		</div>
+  </div>
 		<h1>Liste des produits disponibles :</h1>
-		<div class="main">
+		<div class="main bg-transparent">
 		  <div class="row">
 		  	<% @item.each do |item| %>
 				<%if item.avatar.attached?%>
@@ -19,18 +21,19 @@
 						<div class="flip-card">
 							<div class="flip-card-inner">
 								<div class="flip-card-front">
-			  							<%= image_tag item.avatar, alt: 'avatar',style:"width: 300px; height:300px"%><br>
+									<%= image_tag item.avatar, alt: 'avatar',style:"width: 300px; height:300px"%>
+			  							<br>
 							  	</div>
 							  	<div class="flip-card-back">
 		  							<strong> Titre : </strong><br> 
-		  							<%= item.title %><br>
-									<i> <%= link_to "See more", item_path(item.id) %><br/></i>
+		  							<%= item.title %><br><br/>
+									<p> <%= link_to "See more", item_path(item.id),class:"vert" %></p><br/>
 									<%if user_signed_in?%>
 										<%if current_user.cart != nil %>
 											<%if @cart.items.length == nil%>
-												<i>
-													<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/>
-												</i>
+												<p>
+													<%= link_to "Ajouter au panier", item_cart_path(item.id,@cart.id),class:"bleu",method: "put" %><br/>
+												</p>
 											<%else%>
 												<%result = 1 %>
 												<%@cart.items.each do |find|%>
@@ -43,9 +46,9 @@
 												<%end%>
 												<%if result == 1 %>
 													<h4>
-														<i>
-															<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}", method: "put" %><br/>
-														</i>
+														<p>
+															<%= link_to "Ajouter au panier", item_cart_path(item.id,@cart.id),class:"bleu",method: "put" %><br/>
+														</p>
 													</h4>
 												<%end%>
 											<%end%>

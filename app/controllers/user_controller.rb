@@ -17,10 +17,18 @@ class UserController < ApplicationController
 			render edit
 		end
 	end
+	def destroy
+		@user = User.find(params[:id])
+		@user.cart.items.destroy_all
+		@user.cart.destroy 
+		@user.destroy
+		redirect_to root_path
+
+	end
 	private
 	def is_current_user?
 		@user = User.find(params[:id])
-		if current_user == @user || @user == admins
+		if current_user == @user || current_user == admins
 			return true
 		else
 			redirect_to root_path

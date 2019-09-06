@@ -23,95 +23,158 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
-  <body>
+<body> 
     <header>
-  <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="<%=root_path%>" data-placement="bottom">
-        e-Commerce
-        </a>
-      </div>
-      <div>
-        <ul class="navbar-nav">
-          <%if user_signed_in?%>
-            <%if current_user.cart != nil %>
-              <li class="nav-item">
-                <a class="nav-link" href="<%=cart_path(current_user.cart.id) %>">
-                  <p>voir mon panier</p>
-                </a>
-              </li>
-              <%if current_user == admins%>
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+      <div class="container">
+        <div class="navbar-translate">
+          <a class="navbar-brand" href="<%=item_index_path%>" data-placement="bottom">
+          e-Commerce
+          </a>
+        </div>
+        <div>
+          <ul class="navbar-nav">
+            <%if user_signed_in?%>
+              <%if current_user.cart != nil %>
                 <li class="nav-item">
-                  <a class="nav-link" href="<%=new_item_path%>">
-                    <p>Create an item</p>
+                  <a class="nav-link" href="<%=cart_path(current_user.cart.id) %>">
+                    <p><%=current_user.cart.items.count%> <%= image_tag 'cart1.jpg', alt: 'image',class:'cart' %></p>
                   </a>
                 </li>
+                <%if current_user == admins%>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<%=new_item_path%>">
+                      <p>Create an item</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="<%=root_path%>">
+                      <p>Admin dashboard</p>
+                    </a>
+                  </li>
+                <%end%>
+              <%else%>
+                <li class="nav-item">
+                    <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
+                      <p>prendre un panier <%= image_tag 'cart.jpg', alt: 'image',class:'cart' %></p>
+                    </a>
+                  </li>
               <%end%>
             <%else%>
               <li class="nav-item">
                   <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
-                    <p>prendre un panier</p>
+                  <p>prendre un panier <%= image_tag 'cart.jpg', alt: 'image',class:'cart' %></p>
                   </a>
-                </li>
+              </li>
+            <%end%>
+            <li class="nav-item">
+              <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/" target="_blank">
+                <i class="fab fa-twitter"></i>
+                <p class="d-lg-none d-xl-none">Twitter</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook-square"></i>
+                <p class="d-lg-none d-xl-none">Facebook</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <p class="d-lg-none d-xl-none">Instagram</p>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <%if user_signed_in?%>
+                <div class="dropdown">
+                  <button class="dropbtn">Profil</button>
+                  <div class="dropdown-content">
+                    <%=link_to "voir profil", user_path(current_user.id) %>
+                    <%=link_to 'sign out',destroy_user_session_path,method: 'delete' %>
+                  </div>
+                </div> 
+              <%else%>
+                <div class="dropdown">
+                  <button class="dropbtn">Sign</button>
+                  <div class="dropdown-content">
+                    <a href="<%=new_user_session_path%>">Login</a>
+                    <a href="<%=new_user_registration_path%>">Sign in</a>
+                  </div>
+                </div> 
+              <%end%>
+            </li>
+          </ul>
+        </div>
+      </div> 
+    </nav>
+  </header>
+<!--   <header>
+    <nav class="site-header fixed-top  py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="<%root_path%>">
+          e-Commerce
+        </a>
+        <%if user_signed_in?%>
+          <%if current_user.cart != nil %>
+              <a class="py-2 d-none d-md-inline-block" href="<%=cart_path(current_user.cart.id) %>">
+                <p><%=current_user.cart.items.count%> <%= image_tag 'cart1.jpg', alt: 'image',class:'cart' %></p>
+              </a>
+            </li>
+            <%if current_user == admins%>
+              <a class="py-2 d-none d-md-inline-block" href="<%=new_item_path%>">
+                  <p>Create an item</p>
+                </a>
             <%end%>
           <%else%>
-            <li class="nav-item">
-                <a class="nav-link" href="<%= cart_index_path%>" data-method="post">
-                <p>prendre un panier</p>
+                <a class="py-2 d-none d-md-inline-block" href="<%= cart_index_path%>" data-method="post">
+                  <p>prendre un panier <%= image_tag 'cart.jpg', alt: 'image',class:'cart' %></p>
                 </a>
-            </li>
           <%end%>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/" target="_blank">
-              <i class="fab fa-twitter"></i>
-              <p class="d-lg-none d-xl-none">Twitter</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/" target="_blank">
-              <i class="fab fa-facebook-square"></i>
-              <p class="d-lg-none d-xl-none">Facebook</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/" target="_blank">
-              <i class="fab fa-instagram"></i>
-              <p class="d-lg-none d-xl-none">Instagram</p>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <%if user_signed_in?%>
-              <div class="dropdown">
-                <button class="dropbtn">Profil</button>
-                <div class="dropdown-content">
-                  <%=link_to "voir profil", user_path(current_user.id) %>
-                  <%=link_to 'sign out',destroy_user_session_path,method: 'delete' %>
-                </div>
-              </div> 
-            <%else%>
-              <div class="dropdown">
-                <button class="dropbtn">Sign</button>
-                <div class="dropdown-content">
-                  <a href="<%=new_user_session_path%>">Login</a>
-                  <a href="<%=new_user_registration_path%>">Sign in</a>
-                </div>
-              </div> 
-            <%end%>
-          </li>
-        </ul>
+        <%else%>
+              <a class="py-2 d-none d-md-inline-block" href="<%= cart_index_path%>" data-method="post">
+              <p>prendre un panier <%= image_tag 'cart.jpg', alt: 'image',class:'cart' %></p>
+              </a>
+        <%end%>
+        <a class="py-2 d-none d-md-inline-block" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/" target="_blank">
+          <i class="fab fa-twitter"></i>
+          <p class="d-lg-none d-xl-none"></p>
+        </a>
+
+        <a class="py-2 d-none d-md-inline-block" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/" target="_blank">
+          <i class="fab fa-facebook-square"></i>
+          <p class="d-lg-none d-xl-none"></p>
+        </a>
+        <a class="py-2 d-none d-md-inline-block" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <p class="d-lg-none d-xl-none"></p>
+        </a>
+        <%if user_signed_in?%>
+          <div class="dropdown">
+            <button class="dropbtn">Profil</button>
+            <div class="dropdown-content">
+              <%=link_to "voir profil", user_path(current_user.id) %>
+              <%=link_to 'sign out',destroy_user_session_path,method: 'delete' %>
+            </div>
+          </div> 
+        <%else%>
+          <div class="dropdown">
+            <button class="dropbtn">Sign</button>
+            <div class="dropdown-content">
+              <a href="<%=new_user_session_path%>">Login</a>
+              <a href="<%=new_user_registration_path%>">Sign in</a>
+            </div>
+          </div> 
+        <%end%>
       </div>
-    </div> 
-  </nav>
-</header>
-
-
-    <%= yield %>
-<footer class=" border-top">
-  <div class="center">
-    <%= image_tag 'nav.png', alt: 'image 15', id:"cat" %><br>
-    <small >© 2017-2019</small>
-  </div>
-</footer>
-  </body>
+    </nav>
+  </header> -->
+  <%= yield %>
+  <footer class=" border-top">
+    <div class="center">
+      <%= image_tag 'nav.png', alt: 'image 15', id:"cat" %><br>
+      <small >© 2017-2019</small>
+    </div>
+  </footer>
+</body>
 </html>
