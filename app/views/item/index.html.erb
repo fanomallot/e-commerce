@@ -32,7 +32,7 @@
 										<%if current_user.cart != nil %>
 											<%if @cart.items.length == nil%>
 												<p>
-													<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}",class:"bleu",method: "put" %><br/>
+													<%= link_to "Ajouter au panier", item_cart_path(item.id,@cart.id),class:"bleu",method: "put" %><br/>
 												</p>
 											<%else%>
 												<%result = 1 %>
@@ -47,7 +47,7 @@
 												<%if result == 1 %>
 													<h4>
 														<p>
-															<%= link_to "Ajouter au panier", "/item/#{item.id}/cart/#{@cart.id}",class:"bleu", method: "put" %><br/>
+															<%= link_to "Ajouter au panier", item_cart_path(item.id,@cart.id),class:"bleu",method: "put" %><br/>
 														</p>
 													</h4>
 												<%end%>

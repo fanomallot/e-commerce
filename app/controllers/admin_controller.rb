@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
-	before_action :is_admins
+
+	before_action :is_admins 
 	def index
 	end
 	private
@@ -10,6 +11,8 @@ class AdminController < ApplicationController
 			else
 				redirect_to item_index_path
 			end
+		else
+			redirect_to item_index_path
 		end
 	end
 end
