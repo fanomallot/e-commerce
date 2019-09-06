@@ -294,14 +294,24 @@ color: black;
 }
 .itemindex{
 /*background-color: #0367fc;*/
-background-image: url("images.jpg");
+background-image: url("i9.jpg");
 
 }
 .row{
-  background-image: url();
+  background-image: url(many.jpg);
 }
 .edititem{
   padding-top: 100px;
   
   background-image: url("defaut.jpg");
 }
+.admin{
+  background-image: url("i4.jpg");
+}
+.accueil{
+  background-image: url("i12.jpg");
+}
+.indexcolor{
+  color: gray;
+}
+
