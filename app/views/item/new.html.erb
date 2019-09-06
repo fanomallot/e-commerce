@@ -1,5 +1,5 @@
 <body class="index-page sidebar-collapse">
-  <div class="page-header clear-filter" filter-color="orange">
+  <div class="page-header clear-filter ground newsession">
     <div class="content">
         <br><br><br>
         <div class="col-md-12 ml-auto mr-auto">
@@ -7,8 +7,8 @@
             <div class="row">
               <div class="col-sm-5">
                 <%= image_tag 'many.jpg', alt: 'wow', id: 'catfond' %>
-                <%= link_to "Back", :back, class: "btn btn-primary btn-round btn-lg btn-block" %>
-                <%= link_to "Home", root_path, class: "btn btn-primary btn-round btn-lg btn-block" %>
+                <%= link_to "Back", :back, class: "btn vertdur btn-round btn-lg btn-block" %>
+                <%= link_to "Home", root_path, class: "btn vertdur btn-round btn-lg btn-block" %>
               </div>
               <div class="col-sm-6">
               <div class="container1">
@@ -19,7 +19,7 @@
                   <%= text_field_tag 'price', @item.price, placeholder: "Price.." %>
                   <%= label_tag "Description" %><br/>
                   <%= text_area_tag 'description', @item.description, placeholder: "Description..", style: "height:200px;" %><br/> 
-                  <%= submit_tag "Create Item", class: "btn btn-primary btn-round btn-lg btn-block" %>
+                  <%= submit_tag "Create Item", class: "btn bleu btn-round btn-lg btn-block" %>
                 <% end %>
               </div>
               </div>

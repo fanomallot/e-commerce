@@ -281,6 +281,7 @@ color:white;
 }
 .vertdur:hover{
   color: #08a8ff;
+  background-color: #11cf17;
 }
 .usershow{
   background-image: url("ground8.jpg");

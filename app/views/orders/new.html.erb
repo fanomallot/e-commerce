@@ -1,3 +1,5 @@
+<title>payment</title>
+
 <%= form_tag url_for(action:'create'), method:'post' do %>
     <article>
       <% if flash[:error].present? %>
@@ -6,8 +8,8 @@
         </div>
       <% end %>
       <label class="amount">
-      <h2>If you want to get these/those cart(s), you must pay <%=@totalprice%> : </h2>
-        <span>Amount: $ <%=@totalprice%> </span>
+      <h2>If you want to get these/those product(s), you must pay <%=@totalprice.to_f.round(2)%> : </h2>
+        <span>Amount: $ <%=@totalprice.to_f.round(2)%> </span>
       </label>
     </article>
   
