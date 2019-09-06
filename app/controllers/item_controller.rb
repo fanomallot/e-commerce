@@ -1,6 +1,11 @@
 class ItemController < ApplicationController
 	before_action :authenticate_user!, except: [:index]
 	before_action :is_admin?, except: [:index,:show]
+
+	def accueil
+		
+	end
+	
 	def index
 		@item = Item.all
 		if user_signed_in?
