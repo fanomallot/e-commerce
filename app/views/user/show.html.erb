@@ -12,6 +12,11 @@
           </p>
           <br>
         <%end%>
+        <%if current_user == admins%>
+         <p>  
+            <%=link_to 'delete',user_path(@user.id),class:"supprime",method:"delete"%>
+         </p> 
+        <%end%>
         <p><%=link_to 'Edit profil',edit_user_path(@user.id), class: "vertdur"%></p><br>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">

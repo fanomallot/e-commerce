@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'avatars/create'
   devise_for :users
-  root to: "item#index"
+  root to: "admin#index"
   resources :item do
   	resources :avatars, only: [:create]
     resources :cart, only: [:update]

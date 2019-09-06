@@ -32,7 +32,7 @@
 							<h3>Détail du produit :</h3>
 							<strong> Titre : </strong> <%= @item.title %><br/>
 							<strong> Prix : </strong> $<%= @item.price %><br/>
-							<strong> Description : </strong><%= @item.description %> <br/>
+							<strong> Description : </strong><%= @item.description %> <br/><br/>
 							<%result = 1%>
 							<%@cart.items.each do |find|%>
 								<%if find != @item%>
@@ -73,11 +73,11 @@
 								<%end%>
 							<%end%>
 							<%if current_user == admins%>
-								<i>
+								<p>
 									<%= link_to "Edit", edit_item_path,class:"vert"%>
-								</i>
 						
 								<%=link_to 'Remove' ,item_path(@item.id),class:"supprime" ,method:'delete'%>
+								</p>
 							<%end%>	
 						</li>
 					</div>

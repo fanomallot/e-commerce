@@ -94,6 +94,7 @@
 
 #catfond{
   border-radius: 12px;
+  /*width: 2500px;*/
 }
 .centered {
   position: absolute;
@@ -183,13 +184,12 @@ img{
 .supprime{
   border-radius: 10px;
   border-color: #ff0303;
-  background-color: white;
-  color: #ff0303;
+  background-color: #ff0303;
+  color: white;
   padding: 10px;
 }
 .supprime:hover{
-  background-color: #ff0303;
-  color: white;
+  color: green;
 }
 .vert{
   border-radius: 10px;
@@ -229,6 +229,12 @@ color:white;
   position: relative;  
   padding-bottom:200px;
   padding-top: 50px;
+}
+.newsession{
+  background-image: url("new2.jpg");
+}
+.newregistre{
+  background-image: url("new6.jpg");
 }
 .cartshow{
   background-image: url("ground2.jpg");
@@ -284,4 +290,12 @@ color:white;
 .edituser{
 text-align: center;
 color: black;
+}
+.itemindex{
+/*background-color: #0367fc;*/
+background-image: url("images.jpg");
+
+}
+.row{
+  background-image: url();
 }
