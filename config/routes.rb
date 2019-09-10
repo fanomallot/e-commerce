@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'avatars/create'
+  get '/accueil', to: "item#accueil"
   devise_for :users
   root to: "admin#index"
   resources :item ,path: '/produit'  do

@@ -21,6 +21,12 @@
                   <%= f.password_field :password, autofocus: true, placeholder: "Password", class: "form-control"%>
                 </div>
               </div>
+              <% if devise_mapping.rememberable? %>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end %>
               <div class="card-footer text-center">
                 <%= f.submit "Log in", class: "btn btn-round btn-lg btn-block bleu" %>
               </div>
