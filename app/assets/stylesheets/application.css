@@ -294,11 +294,11 @@ color: black;
 }
 .itemindex{
 /*background-color: #0367fc;*/
-background-image: url("i9.jpg");
+background-image: url("fod.jpg");
 
 }
 .row{
-  background-image: url(many.jpg);
+  background-image: url(fod3.jpg);
 }
 .edititem{
   padding-top: 100px;
@@ -308,7 +308,7 @@ background-image: url("i9.jpg");
 .admin{
   background-image: url("i4.jpg");
 }
-.accueil{
+.agraccueil{
   background-image: url("i12.jpg");
 }
 .indexcolor{
